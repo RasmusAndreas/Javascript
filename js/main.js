@@ -324,15 +324,14 @@ function change_image(num){
 
     }
 
-    document.slideshow.src= Image[Image_Number];
+    //document.slideshow.src = Image[Image_Number];
 
-    /*// predefined fast (600ms)
-    $("#slideimg").fadeOut("fast");
+    $("#slideimg").fadeOut('slow', function() {
 
-    // 1500 ms
-    $("#slideimg").fadeIn(1500);*/
+            $(this).attr('src', Image[Image_Number]);
 
-    return false;
+        }
+    ).fadeIn('slow');
 
 }
 
