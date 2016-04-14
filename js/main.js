@@ -326,12 +326,12 @@ function change_image(num){
 
     //document.slideshow.src = Image[Image_Number];
 
-    $("#slideimg").fadeOut('slow', function() {
+    $("#slideimg").fadeOut('fast', function() {
 
             $(this).attr('src', Image[Image_Number]);
 
         }
-    ).fadeIn('slow');
+    ).fadeIn('fast');
 
 }
 
