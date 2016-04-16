@@ -324,8 +324,7 @@ function change_image(num){
 
     }
 
-    //document.slideshow.src = Image[Image_Number];
-
+    //makes the slideshow fade instead of just a hard "cut"
     $("#slideimg").fadeOut('fast', function() {
 
             $(this).attr('src', Image[Image_Number]);
@@ -335,20 +334,45 @@ function change_image(num){
 
 }
 
+//function that makes the slideshow start when the function is activated.
 function auto(){
 
     setInterval("change_image(+1)", 4000);
 
 }
 
+//Activates the function auto, when the page loads.
 onload(auto());
 
-/*var img = document.getElementById('slideimg');
-var height = img.clientHeight;
-document.write(height);
-prevalue.setAttribute("value" , htext.innerHTML);*/
 
 
+// ******* Cookies tryout *******
 
+//change styling of header/menubar and when that works put it into to a cookie that remembers the unique styling for some time.
+//Save changes in a cookie and save that cookie for a couple of minutes. So if page is reloaded within the saved time the chosen
+//color should still be shown.
 
+function colorChanger() {
+    var headerdiv = document.getElementById("nav");
+    var colorvalue = document.getElementById("colorselector").selectedIndex;
+    var personalColor = document.getElementsByTagName("option")[colorvalue].value;
+    headerdiv.style.backgroundColor = personalColor;
+    var expire = new Date();
+    expire.setMinutes(expire.getMinutes() + 10);
+    document.cookie = "personalcolor=" + personalColor + ";" + "expires=" + expire.toUTCString() + ";" + "personalcolor=" + colorvalue + ";" ;
+    //alert(document.cookie);
+}
+
+function checkCookie() {
+        var cookieValue = document.cookie;
+        var splitCookieInfo = cookieValue.split("=", 2);
+        var headerdiv = document.getElementById("nav");
+        var newColorValue = splitCookieInfo[1];
+        //headerdiv.style.backgroundColor = newColorValue;
+        document.write(newColorValue);
+
+}
+
+//styling changed by using html tag <option> and <button> successful.
+//cookie created, but issues with reading it and inserting it as the backgroundcolor.
 
