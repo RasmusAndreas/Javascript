@@ -308,16 +308,20 @@ var Image_Number = 0;
 
 var Image_Length = Image.length - 1;
 
+//function that when activated changes image, needs for example a +1 or -1 in change_image() to work.
 function change_image(num){
 
     Image_Number = Image_Number + num;
 
+    //Makes sure when the slideshow reaches the end of the array, that it starts from the beginning again.
     if (Image_Number > Image_Length){
 
         Image_Number = 0;
 
     }
 
+    //When you go backwards in the slideshow using the buttons, this makes sure that when you reach the first picture,
+    //it goes to the last picture.
     if (Image_Number < 0){
 
         Image_Number = Image_Length;
