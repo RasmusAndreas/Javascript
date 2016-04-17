@@ -358,9 +358,11 @@ onload(auto());
 
 function colorChanger() {
     var headerdiv = document.getElementById("nav");
+    var contentdiv = document.getElementById("block");
     var colorvalue = document.getElementById("colorselector").selectedIndex;
     var personalColor = document.getElementsByTagName("option")[colorvalue].value;
     headerdiv.style.backgroundColor = personalColor;
+    contentdiv.style.backgroundColor = personalColor;
     var expire = new Date();
     expire.setMinutes(expire.getMinutes() + 10);
     document.cookie = "personalcolor=" + personalColor + ";" + "expires=" + expire.toUTCString() + ";" + "personalcolor=" + colorvalue + ";" ;
@@ -371,12 +373,15 @@ function checkCookie() {
         var cookieValue = document.cookie;
         var splitCookieInfo = cookieValue.split("=", 2);
         var headerdiv = document.getElementById("nav");
+        var contentdiv = document.getElementById("block");
         var newColorValue = splitCookieInfo[1];
-        //headerdiv.style.backgroundColor = newColorValue;
-        document.write(newColorValue);
+        headerdiv.style.backgroundColor = newColorValue;
+        contentdiv.style.backgroundColor = newColorValue;
+        //document.write(newColorValue);
 
 }
 
 //styling changed by using html tag <option> and <button> successful.
-//cookie created, but issues with reading it and inserting it as the backgroundcolor.
+//cookie created, and site reads it on page load and inserts the users choice as the backgroundcolor.
+//remembers color for 10 minutes.
 

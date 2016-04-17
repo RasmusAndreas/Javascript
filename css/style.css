@@ -73,10 +73,9 @@ img {
 @media all and (max-width: 640px) {
 
     #slideimg {
-        height: 300px;
-        width: 800px;
+        height: auto;
+        width: 100%
         overflow: hidden;
-        right: -100px;
     }
 
     #slide_wrapper {
@@ -85,11 +84,11 @@ img {
     }
 
     #block {
-        background-color: red;
+        background-color: black;
     }
 
     #previous, #next {
-        padding: 135px 0 0 35%;
+        padding: 70px 0 0 35%;
     }
 
 }
